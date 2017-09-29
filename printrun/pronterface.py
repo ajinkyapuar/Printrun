@@ -700,7 +700,10 @@ class PronterWindow(MainWindow, pronsole.pronsole):
             return
         wx.CallAfter(self.addtexttolog, ">>> " + command + "\n")
         line = self.precmd(str(command))
+	print("*** Sending ***")
+	print(line)
         self.onecmd(line)
+	print("*** Sending ***")
         self.commandbox.SetSelection(0, len(command))
         self.commandbox.history.append(command)
         self.commandbox.histindex = len(self.commandbox.history)
@@ -1072,6 +1075,7 @@ Printrun. If not, see <http://www.gnu.org/licenses/>."""
 
     def connect(self, event = None):
         self.log(_("Connecting..."))
+	print("*** Connecting ***")
         port = None
         if self.serialport.GetValue():
             port = str(self.serialport.GetValue())
