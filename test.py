@@ -1,12 +1,20 @@
-from printrun.printcore import printcore as PC
+from printrun.printcore import printcore
+from printrun import gcoder
 
-pc = PC()
+from printrun.pronterface import PronterWindow
 
-print pc
+#PW = PronterWindow()
+#print(PW)
 
-# pc.connect(port='/dev/ttyACM0', baud=250000)
 
-pc.send()
+p = printcore('/dev/ttyACM0',250000)
+print(p)
+p.send_now("G28")
+#pc.connect(port='/dev/ttyACM0', baud=250000)
+#pc.connect(_'/dev/ttyACM0',115200)
+
+
+
 # from printrun.printcore import printcore
 # from printrun import gcoder
 # p=printcore('/dev/ttyUSB0',115200) # or p.printcore('COM3',115200) on Windows

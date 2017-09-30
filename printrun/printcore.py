@@ -165,6 +165,7 @@ class printcore():
 
     @locked
     def connect(self, port = None, baud = None, dtr=None):
+        print("*** BEGIN PRINTCORE CONNECT ***")
         """Set port and baudrate if given, then connect to printer
         """
         if self.printer:
@@ -241,6 +242,7 @@ class printcore():
             self.read_thread = threading.Thread(target = self._listen)
             self.read_thread.start()
             self._start_sender()
+            print("*** BEGIN PRINTCORE CONNECT ***")
 
     def reset(self):
         """Reset the printer
